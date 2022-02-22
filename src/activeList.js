@@ -35,7 +35,7 @@ const handleItem = function (itemData) {
   const items = document.querySelectorAll('.show-list');
   items.forEach((item) => {
     // eslint-disable-next-line eqeqeq
-    if (item.querySelector('.tast').getAttribute('data-time') == itemData.index) {
+    if (item.querySelector('.tast').getAttribute('data-time') === itemData.index) {
       item.querySelector('[data-done]').addEventListener('change', (e) => {
         e.preventDefault();
         const itemIndex = itemsArr.indexOf(itemData);
@@ -44,7 +44,7 @@ const handleItem = function (itemData) {
         currentItem.completed = currentItem.completed ? false : true;
         itemsArr.splice(itemIndex, 1, currentItem);
         // eslint-disable-next-line eqeqeq
-        if (currentItem.completed == false) {
+        if (currentItem.completed === false) {
           item.querySelector('.tast').style.textDecoration = '';
           item.querySelector('.drag-drop').style.display = 'flex';
           item.querySelector('.trash').style.display = 'none';
@@ -57,7 +57,7 @@ const handleItem = function (itemData) {
         removeAll.addEventListener('click', (e) => {
           e.preventDefault();
           // eslint-disable-next-line eqeqeq
-          if (currentItem.completed == true) {
+          if (currentItem.completed === true) {
             const removeIndex = itemsArr.indexOf(currentItem);
             itemsArr.splice(removeIndex, 1);
           }
@@ -77,7 +77,7 @@ const handleItem = function (itemData) {
         removeItem(item);
         saveLocalStorage(itemsArr);
         // eslint-disable-next-line eqeqeq
-        return itemsArr.filter((item) => item != itemData.description);
+        return itemsArr.filter((item) => item !== itemData.description);
       });
     }
   });
@@ -101,7 +101,7 @@ const tasksListShow = (itemsArr) => {
 
 const getItems = () => {
   const storeItems = localStorage.getItem('itemsArr');
-  if (storeItems === 'undefined' || storeItems == null) {
+  if (storeItems === 'undefined' || storeItems === null) {
     itemsArr = [];
   } else {
     itemsArr = JSON.parse(storeItems);
