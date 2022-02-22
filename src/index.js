@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // eslint-disable-next-line no-unused-vars
 import _ from 'lodash';
 import './style.css';
@@ -31,6 +32,4 @@ const tasks = (eachtask) => {
   input.classList = 'check-box';
   taskName.classList = 'tast';
   dragImg.classList = 'drag-drop';
-  
-
 };
